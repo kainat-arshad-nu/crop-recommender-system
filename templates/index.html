@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Recommeder</title>
+  <link rel="stylesheet" href="css/style.css">  
+</head>
+
+<body>
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js" ></script>
+<body>
+<div id="formWrapper">
+
+<form action="{{ url_for('predict')}}" method="POST" id="form">
+<div class="logo">
+<img src="images/logo.png" alt="logo">
+</div>
+<div class="row">
+		<div class="form-item col">
+			<p class="formLabel">N</p>
+			<input name="n" id="n" class="form-style" autocomplete="off" value="{{query1}}"/>
+		</div>
+		<div class="form-item col">
+			<p class="formLabel">P</p>
+			<input name="p" id="p" class="form-style" autocomplete="off" value="{{query2}}"/>
+		</div>
+		<div class="form-item col">
+			<p class="formLabel">K</p>
+			<input id="k" name="k" class="form-style" autocomplete="off" value="{{query3}}"/>
+		</div>
+</div>
+		<div class="form-item">
+			<p class="formLabel">Temperature</p>
+			<input name="temp" id="temp" class="form-style" autocomplete="off" value="{{query4}}"/>
+		</div>
+		<div class="form-item">
+			<p class="formLabel">Humidity</p>
+			<input name="hum" id="hum" class="form-style" autocomplete="off" value="{{query5}}"/>
+		</div>
+		<div class="form-item">
+			<p class="formLabel">PH</p>
+			<input name="ph" id="ph" class="form-style" autocomplete="off" value="{{query6}}"/>
+		</div>
+	<div class="form-item">
+		<input type="submit" name="submit" value="Predict">
+		<div class="clear-fix"></div>
+		</div>
+		<div>
+			{{output1}}{{output2}}
+		</div>
+</form>
+</div>
+</body>
+</html>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
