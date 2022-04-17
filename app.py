@@ -1,4 +1,3 @@
-import pandas as pd
 from flask import Flask, request, render_template
 import pickle
 
@@ -14,12 +13,12 @@ def loadPage():
 @app.route("/predict", methods=['POST'])
 def predict():
     
-    inputQuery1 = request.form['n']
-    inputQuery2 = request.form['p']
-    inputQuery3 = request.form['k']
-    inputQuery4 = request.form['temp']
-    inputQuery5 = request.form['hum']
-    inputQuery6 = request.form['ph']
+    inputQuery1 = int(request.form['n'])
+    inputQuery2 = int(request.form['p'])
+    inputQuery3 = int(request.form['k'])
+    inputQuery4 = float(request.form['temp'])
+    inputQuery5 = float(request.form['hum'])
+    inputQuery6 = float(request.form['ph'])
 
     model = pickle.load(open("trained_model.sav", "rb"))
     
@@ -31,5 +30,5 @@ def predict():
     return render_template('index.html', output1=single[0], query1 = inputQuery1, query2 = inputQuery2,query3 = inputQuery3 ,query4 = inputQuery4, query5 = inputQuery5, query6 = inputQuery6)
 
 if __name__ == "__main__":
-    app.debug = True
-    app.run()
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
