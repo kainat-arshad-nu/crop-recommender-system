@@ -45,9 +45,14 @@
 		<input type="submit" name="submit" value="Predict">
 		<div class="clear-fix"></div>
 		</div>
-		<div>
-			{{output1}}{{output2}}
-		</div>
+		{% if output1 %}
+			The output is
+		{% endif %}
+		<div class="stack" style="--stacks: 3;">
+			<span style="--index: 0;">{{output1}}</span>
+			<span style="--index: 1;">{{output1}}</span>
+			<span style="--index: 2;">{{output1}}</span>
+		  </div>
 </form>
 </div>
 </body>

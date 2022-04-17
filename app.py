@@ -1,13 +1,8 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier 
-from sklearn import metrics
 from flask import Flask, request, render_template
 import pickle
 
 app = Flask("__name__")
-
-
 
 q = ""
 
@@ -30,15 +25,10 @@ def predict():
     
     
     data = [[inputQuery1, inputQuery2, inputQuery3, inputQuery4, inputQuery5, inputQuery6]]
-    new_df = pd.DataFrame(data, columns = ['N', 'P', 'K', 'temperature', 'humidity', 'ph'])
-    
-    single = model.predict(new_df)
-    probablity = model.predict_proba(new_df)[:,1]
-    
-    o1 = single
-    o2 = "Confidence: {}".format(probablity*100)
+
+    single = model.predict(data)
         
-    return render_template('index.html', output1=o1, output2=o2, query1 = request.form['query1'], query2 = request.form['query2'],query3 = request.form['query3'],query4 = request.form['query4'],query5 = request.form['query5'], query6 = request.form['query6'])
+    return render_template('index.html', output1=single[0], query1 = inputQuery1, query2 = inputQuery2,query3 = inputQuery3 ,query4 = inputQuery4, query5 = inputQuery5, query6 = inputQuery6)
 
 if __name__ == "__main__":
     app.debug = True
