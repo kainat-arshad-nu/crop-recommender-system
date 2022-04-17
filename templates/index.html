@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Crop Recommeder</title>
-  <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
 <form action="{{ url_for('predict')}}" method="POST" id="form">
 <div class="logo">
-<img src="images/logo.png" alt="logo">
+<img src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
 </div>
 <div class="row">
 		<div class="form-item col">
@@ -53,7 +53,7 @@
 </body>
 </html>
   
-    <script src="js/index.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 </body>
 </html>
