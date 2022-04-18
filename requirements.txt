@@ -1,4 +1,4 @@
-itsdangerous==1.1.0
+itsdangerous==2.0
 MarkupSafe==1.1.1
 numpy==1.17.4
 scipy==1.4.1
