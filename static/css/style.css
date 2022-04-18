@@ -117,6 +117,43 @@ div.form-item:last-child {
   .stack span:nth-child(odd) { --glitch-translate: 8px; }
   .stack span:nth-child(even) { --glitch-translate: -8px; }
   
+  @media only screen and (max-width: 600px), only screen and (max-device-width: 600px) {
+	#form{   position: static;
+		width: 100%;
+		height: 100%;
+		border: none;
+		margin: 0;
+		font-size: 3rem;
+	}
+
+		.row{
+			display: block;
+		}
+		.col {
+			padding: 0px !important;
+		}
+		div.form-item:last-child {
+			margin-bottom: 20px;
+		}
+		input.form-style {
+			height: 9rem;
+		}
+		input[type="submit"]{
+			height: 9rem;
+			font-size: 3rem;
+		}
+		.logo, .form-item {
+			margin-bottom: 4rem !important;
+		}
+		.formTop{ 
+			font-size: 3rem;
+			top: -5rem !important;
+		}
+		.stack span {
+			font-size: 3rem;
+		}
+
+}
   @keyframes stack {
 	0% {
 	  opacity: 0;
@@ -147,3 +184,4 @@ div.form-item:last-child {
 	}
 	4%, 100% {  text-shadow: none; transform: none; }
   }
+ 

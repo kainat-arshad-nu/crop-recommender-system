@@ -15,4 +15,11 @@ $(document).ready(function(){
 	$('p.formLabel').click(function(){
 		 $(this).parent().children('.form-style').focus();
 	});
+	$("input.form-style").each(function () {
+		if($(this).val() != "") {
+			$(this).parent().children('p.formLabel').addClass('formTop');
+			$('div#formWrapper').addClass('darken-bg');
+			$('div.logo').addClass('logo-active');
+		}
+	})
 });
