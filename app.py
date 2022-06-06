@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template
 import pickle
+from flask_cors import CORS
 
 app = Flask("__name__")
+CORS(app)
 
 q = ""
 
@@ -30,6 +32,7 @@ def predict():
     return render_template('index.html', output1=single[0], query1 = inputQuery1, query2 = inputQuery2,query3 = inputQuery3 ,query4 = inputQuery4, query5 = inputQuery5, query6 = inputQuery6)
 
 @app.route("/api/predict/", methods=['POST'])
+
 def testAPI():
     inputQuery1 = int(request.form['n'])
     inputQuery2 = int(request.form['p'])
